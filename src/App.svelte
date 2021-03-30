@@ -2,6 +2,7 @@
 	import { each } from "svelte/internal";
 	import placesToEat from './Resources/placesToEat';
 	import {randomPrettyColor, getClosestCell} from './Utils';
+	import Headline from './Components/Headline/Headline.svelte';
 
 	const cells = placesToEat.map(( place ) => { 
 		return  {style : randomPrettyColor() , content : place}
@@ -67,6 +68,7 @@
 	}
 </style>
 
+<Headline />
 <div class='container'>
 	<div class='wrapper'>
 		<div class="carousel" style={`transform: translateZ(-${cellSpacings}px) rotateY(${currentAngle}deg); ${animationFinished}`}>
