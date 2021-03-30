@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { each } from "svelte/internal";
+	
 	import placesToEat from './Resources/placesToEat';
-	import {randomPrettyColor, getClosestCell} from './Utils';
+	import {randomPrettyColor, getClosestCell, fireConfetti} from './Utils';
 	import Headline from './Components/Headline/Headline.svelte';
 
 	const cells = placesToEat.map(( place ) => { 
@@ -22,6 +23,9 @@
 		if(speed < 0) {
 			animationFinished = 'transition : 1s';
 			currentAngle = getClosestCell(currentAngle, cells.length);
+			setTimeout(() => {
+				fireConfetti();
+			}, 1000);
 			clearInterval(timer);
 		}
 	}
